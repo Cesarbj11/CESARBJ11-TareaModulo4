@@ -1,0 +1,8 @@
+<p>map works!</p>
+<mgl-map [style]="'mapbox://styles/mapbox/streets-v11'" [accessToken]="mapboxAccessToken">
+    <mgl-marker [lng]="marker.lng" [lat]="marker.lat" appTrackClick="marker" (click)="onMarkerClick()"></mgl-marker>
+  </mgl-map>
+
+  <div *ngFor="let tag of (trackingTags$ | async)?.tags | keyvalue">
+    {{ tag.key }}: {{ tag.value }}
+  </div>
